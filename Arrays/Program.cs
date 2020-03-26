@@ -9,7 +9,7 @@ namespace Arrays
         private const string UsageSet = "set <index> <value>";
         private const string UsageGet = "get <index>";
         private const string UsageExit = "exit";
-        
+
         private static int[] _arr;
 
         private static void Main(string[] args)
@@ -37,40 +37,39 @@ namespace Arrays
         private static void ProcessCommand(string command)
         {
             string[] args = command.Split(" ");
-
-            if (string.Equals(args[0], "info", StringComparison.OrdinalIgnoreCase)) //usage: info
+            switch (args[0].ToLower())
             {
-                PrintArray();
-            }
-            else if (string.Equals(args[0], "init", StringComparison.OrdinalIgnoreCase)) //usage: init <length>
-            {
-                if (CheckLength(2, args.Length, UsageInit))
-                {
-                    InitArray(int.Parse(args[1]));
-                }
-            }
-            else if (string.Equals(args[0], "set", StringComparison.OrdinalIgnoreCase)) //usage: set <index> <value>
-            {
-                if (CheckLength(3, args.Length, UsageSet))
-                {
-                    Set(int.Parse(args[1]), int.Parse(args[2]));
-                }
-            }
-            else if (string.Equals(args[0], "get", StringComparison.OrdinalIgnoreCase)) //usage: get <index>
-            {
-                if (CheckLength(2, args.Length, UsageSet))
-                {
-                    Get(int.Parse(args[1]));
-                }
-            }
-            else if (string.Equals(args[0], "exit", StringComparison.OrdinalIgnoreCase)) //usage: exit
-            {
-                Exit();
-            }
-            else
-            {
-                Console.WriteLine($"Command {command} not found!");
-                PrintUsages();
+                case "info":
+                    PrintArray();
+                    break;
+                case "init":
+                    if (CheckLength(2, args.Length, UsageInit))
+                    {
+                        InitArray(int.Parse(args[1]));
+                    }
+                    break;
+                case "set":
+                    if (CheckLength(3, args.Length, UsageSet))
+                    {
+                        Set(int.Parse(args[1]), int.Parse(args[2]));
+                    }
+                    break;
+                case "get":
+                    if (CheckLength(2, args.Length, UsageGet))
+                    {
+                        Get(int.Parse(args[1]));
+                    }
+                    break;
+                case "exit":
+                    if (CheckLength(2, args.Length, UsageSet))
+                    {
+                        Exit();
+                    }
+                    break;
+                default:
+                    Console.WriteLine($"Command {command} not found!");
+                    PrintUsages();
+                    break;
             }
         }
 
