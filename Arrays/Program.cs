@@ -91,7 +91,7 @@ namespace Arrays
         {
             if (_arr != null)
             {
-                Console.WriteLine($"Array lenght: {_arr.Length}");
+                Console.WriteLine($"Array length: {_arr.Length}");
                 for (var i = 0; i < _arr.Length; i++)
                 {
                     Console.WriteLine($"Array[{i}] = {_arr[i]}");
