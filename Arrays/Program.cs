@@ -9,13 +9,13 @@ namespace Arrays
         private const string UsageSet = "set <index> <value>";
         private const string UsageGet = "get <index>";
         private const string UsageExit = "exit";
-
+        
         private static int[] _arr;
 
         private static void Main(string[] args)
         {
             Console.WriteLine("Please type in a command:");
-            printUsages();
+            PrintUsages();
 
             while (true)
             {
@@ -24,7 +24,7 @@ namespace Arrays
             }
         }
 
-        private static void printUsages()
+        private static void PrintUsages()
         {
             Console.WriteLine(UsageInfo);
             Console.WriteLine(UsageInit);
@@ -70,7 +70,7 @@ namespace Arrays
             else
             {
                 Console.WriteLine($"Command {command} not found!");
-                printUsages();
+                PrintUsages();
             }
         }
 
